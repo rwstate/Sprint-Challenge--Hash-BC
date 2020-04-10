@@ -18,7 +18,6 @@ class HashTable:
         self.capacity = capacity
         self.storage = [None] * capacity
 
-
 def hash(string, max):
     hash = 5381
     for char in string:
@@ -43,7 +42,6 @@ def hash_table_insert(hash_table, key, value):
         new_pair.next = hash_table.storage[index]
         hash_table.storage[index] = new_pair
 
-
 def hash_table_remove(hash_table, key):
     index = hash(key, len(hash_table.storage))
 
@@ -62,8 +60,6 @@ def hash_table_remove(hash_table, key):
         else:
             last_pair.next = current_pair.next
 
-
-
 def hash_table_retrieve(hash_table, key):
     index = hash(key, len(hash_table.storage))
 
@@ -73,7 +69,6 @@ def hash_table_retrieve(hash_table, key):
         if(current_pair.key == key):
             return current_pair.value
         current_pair = current_pair.next
-
 
 def hash_table_resize(hash_table):
     new_hash_table = HashTable(2 * len(hash_table.storage))

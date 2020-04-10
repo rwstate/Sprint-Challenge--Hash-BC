@@ -7,12 +7,21 @@ from hashtables import (HashTable,
 
 
 def get_indices_of_item_weights(weights, length, limit):
+    if length == 1:
+        return None
     ht = HashTable(16)
 
-    """
-    YOUR CODE HERE
-    """
+    for i, weight in enumerate(weights):
+        hash_table_insert(ht, weight, i)
 
+    for i, weight in enumerate(weights):
+        complement = limit - weight
+        answer = hash_table_retrieve(ht, complement)
+        if answer and i != answer:
+            if i > answer:
+                return (i, answer)
+            else:
+                return (answer, i)
     return None
 
 
